@@ -1,4 +1,4 @@
-FROM lubien/tired-proxy:2
+FROM alpine
 
 RUN apk add nodejs yarn
 
@@ -8,4 +8,7 @@ RUN yarn install
 
 COPY server.js server.js
 COPY start.sh start.sh
-CMD /app/start.sh
+
+COPY --from=lubien/tired-proxy:2 /tired-proxy /tired-proxy
+
+CMD /start.sh
