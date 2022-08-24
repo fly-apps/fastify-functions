@@ -8,6 +8,8 @@ RUN yarn install
 
 COPY server.js server.js
 COPY start.sh start.sh
+EXPOSE 3000
+
 
 COPY --from=lubien/tired-proxy:2 /tired-proxy /tired-proxy
 
